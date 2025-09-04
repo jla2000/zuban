@@ -26,6 +26,10 @@
               "rust-ini-0.21.1" = "sha256-0NRWwxSdMjnu/T2JW1BNUYNLJdtqk5J5WYs7VXbltRs=";
             };
           };
+          fixupPhase = /* bash */ ''
+            cp -r typeshed $out/
+            mkdir -p $out/lib
+          '';
           doCheck = false; # Some unit tests seem to fail
           meta.license = pkgs.lib.licenses.agpl3Only;
         };
